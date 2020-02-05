@@ -1,12 +1,13 @@
 <h1>Products#index</h1>
 <p>Find me in app/views/products/index.html.erb</p>
 
-<% @products.each_with_index do |item, index| %>
+<% @products.each_with_index do |product, index| %>
    <div> 
-      <span><%= item.id %></span>  
-      <span><%= item.title %></span>  
-      <span><%= item.description %></span>  
-      <span><%= item.price %>$</span>  
+      <span><%= product.id %></span>  
+      <span><%= product.title %></span>  
+      <span><%= product.description %></span>  
+      <span><%= product.price %>$</span>  
+      <td><%= link_to 'Show', product %></td>
    </div>
 <% end %>
 

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product.description %>
+</p>
+
+<% @comments.each_with_index do |comment, index| %>
+   <div> 
+      <span><%= comment.id %></span>  
+      <span><%= comment.body %></span>  
+   </div>
+<% end %>
+
+<%= will_paginate @comments %>
+<%= link_to 'New Comment', new_product_comment_path(@product) %>
+<%= link_to 'Back', products_path %>

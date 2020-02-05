@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
   def new
   end
 
+  def show 
+    @product = Product.find(params[:id])
+    @comments = @product.comments.paginate(page: params[:page])
+  end
+
   def create
   end
 end
