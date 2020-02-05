@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
+    scope :visible, -> { where(visible: true) }
     validates :title, :description, :price, presence: true
-    self.per_page = 10
     has_many :comments
 end

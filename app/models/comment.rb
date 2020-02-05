@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
+    scope :visible, -> { where(visible: true) }
     validates :body, presence: true
-    self.per_page = 10
     belongs_to :product
 end

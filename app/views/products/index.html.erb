@@ -7,8 +7,6 @@
       <span><%= product.title %></span>  
       <span><%= product.description %></span>  
       <span><%= product.price %>$</span>  
-      <td><%= link_to 'Show', product %></td>
+      <td><%= link_to pluralize(product.comments.visible.count, "commentaire"), product %></td>
    </div>
 <% end %>
-
-<%= will_paginate @products %>
