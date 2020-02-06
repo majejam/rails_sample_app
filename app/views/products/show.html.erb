@@ -12,10 +12,14 @@
 
 <% @comments.each_with_index do |comment, index| %>
    <div> 
-      <span><%= comment.id %></span>  
+      <span><%= link_to comment.user.email, user_path(comment.user.id) %> ||</span>  
       <span><%= comment.body %></span>  
    </div>
 <% end %>
 
-<%= link_to 'New Comment', new_product_comment_path(@product) %>
+<% if user_signed_in? %>
+  <%= link_to 'New Comment', new_product_comment_path(@product) %>
+<% else %>
+  <%= link_to 'Sign up and add new Comment', new_product_comment_path(@product) %>
+<% end %>
 <%= link_to 'Back', products_path %>

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /comments
   # GET /comments.json
   def index
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(body: comment_params["body"], product_id: params[:product_id])
+    @comment = Comment.new(body: comment_params["body"], product_id: params[:product_id], user_id: current_user.id)
     @product = Product.find(params[:product_id])
     respond_to do |format|
       if @comment.save

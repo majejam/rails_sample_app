@@ -1,0 +1,15 @@
+<h1>User#show</h1>
+<p>Find me in app/views/user/show.html.erb</p>
+<img src="https://i.pravatar.cc/150?u=<%= @user.email %>"/>
+<p>
+  <%= @user.email %>
+</p>
+
+<% @user.comments.each_with_index do |comment, index| %>
+   <div>  
+        <span><%= comment.product.title %></span>  
+        <span><%= comment.body %></span>  
+   </div>
+<% end %>
+
+<%= link_to 'Back', products_path %>
