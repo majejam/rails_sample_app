@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   def index
     @products = params[:category_id] ?  Product.visible.by_category(params[:category_id]) : Product.visible
     @categories = Category.all
+    
+    @contributors = User.top_contributors
 
     respond_to do |format|
         format.html # index.html.slim

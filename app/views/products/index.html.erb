@@ -6,6 +6,13 @@
         <span><%= link_to category.name, root_path(category_id: category.id) %></span>  
     <% end %>
 </div>
+
+<div> 
+    <% @contributors.each_with_index do |contributor, index| %>
+        <div><%= contributor.email %></div>  
+    <% end %>
+</div>
+
 <% @products.each_with_index do |product, index| %>
    <div> 
       <span><%= product.id %></span>  
