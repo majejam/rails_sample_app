@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.visible
+    @products = params[:category_id] ?  Product.visible.by_category(params[:category_id]) : Product.visible
+    @categories = Category.all
+
     respond_to do |format|
         format.html # index.html.slim
         format.xml  { render xml: @products}
