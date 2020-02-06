@@ -10,6 +10,12 @@
   <%= @product.description %>
 </p>
 
+<% @product.categories.each do |category| %>
+   <div> 
+      <span><%= category.name %></span>  
+   </div>
+<% end %>
+
 <% @comments.each_with_index do |comment, index| %>
    <div> 
       <span><%= link_to comment.user.email, user_path(comment.user.id) %> ||</span>  
